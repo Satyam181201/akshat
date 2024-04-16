@@ -2635,6 +2635,7 @@ section {
   color: rgba(0, 0, 0, 0.7);
   margin-right: 10px;
   transition: 0.3s;
+  text-align: center;
 }
 
 .footer .social-links a:hover {
