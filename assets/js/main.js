@@ -18,6 +18,18 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  // /**
+  //  * Hero carousel indicators
+  //  */
+  // let heroCarouselIndicators = select("#hero-carousel-indicators")
+  // let heroCarouselItems = select('#heroCarousel .carousel-item', true)
+
+  // heroCarouselItems.forEach((item, index) => {
+  //   (index === 0) ?
+  //   heroCarouselIndicators.innerHTML += "<li data-bs-target='#heroCarousel' data-bs-slide-to='" + index + "' class='active'></li>":
+  //     heroCarouselIndicators.innerHTML += "<li data-bs-target='#heroCarousel' data-bs-slide-to='" + index + "'></li>"
+  // });
+
   /**
    * Sticky Header on Scroll
    */
@@ -148,9 +160,10 @@ document.addEventListener('DOMContentLoaded', () => {
    */
   new PureCounter();
 
+  
   /**
    * Clients Slider
-   */
+  */
   new Swiper('.clients-slider', {
     speed: 400,
     loop: true,
@@ -183,16 +196,16 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     }
   });
-
+  
   /**
    * Init swiper slider with 1 slide at once in desktop view
-   */
-  new Swiper('.slides-1', {
-    speed: 600,
-    loop: true,
-    autoplay: {
-      delay: 5000,
-      disableOnInteraction: false
+  */
+ new Swiper('.slides-1', {
+   speed: 600,
+   loop: true,
+   autoplay: {
+     delay: 5000,
+     disableOnInteraction: false
     },
     slidesPerView: 'auto',
     pagination: {
@@ -205,16 +218,16 @@ document.addEventListener('DOMContentLoaded', () => {
       prevEl: '.swiper-button-prev',
     }
   });
-
+  
   /**
    * Init swiper slider with 3 slides at once in desktop view
-   */
-  new Swiper('.slides-3', {
-    speed: 600,
-    loop: true,
-    autoplay: {
-      delay: 5000,
-      disableOnInteraction: false
+  */
+ new Swiper('.slides-3', {
+   speed: 600,
+   loop: true,
+   autoplay: {
+     delay: 5000,
+     disableOnInteraction: false
     },
     slidesPerView: 'auto',
     pagination: {
@@ -231,32 +244,32 @@ document.addEventListener('DOMContentLoaded', () => {
         slidesPerView: 1,
         spaceBetween: 40
       },
-
+      
       1200: {
         slidesPerView: 3,
       }
     }
   });
-
+  
   /**
    * Porfolio isotope and filter
-   */
-  let portfolionIsotope = document.querySelector('.portfolio-isotope');
-
-  if (portfolionIsotope) {
-
-    let portfolioFilter = portfolionIsotope.getAttribute('data-portfolio-filter') ? portfolionIsotope.getAttribute('data-portfolio-filter') : '*';
-    let portfolioLayout = portfolionIsotope.getAttribute('data-portfolio-layout') ? portfolionIsotope.getAttribute('data-portfolio-layout') : 'masonry';
-    let portfolioSort = portfolionIsotope.getAttribute('data-portfolio-sort') ? portfolionIsotope.getAttribute('data-portfolio-sort') : 'original-order';
-
-    window.addEventListener('load', () => {
-      let portfolioIsotope = new Isotope(document.querySelector('.portfolio-container'), {
-        itemSelector: '.portfolio-item',
-        layoutMode: portfolioLayout,
-        filter: portfolioFilter,
-        sortBy: portfolioSort
+  */
+ let portfolionIsotope = document.querySelector('.portfolio-isotope');
+ 
+ if (portfolionIsotope) {
+   
+   let portfolioFilter = portfolionIsotope.getAttribute('data-portfolio-filter') ? portfolionIsotope.getAttribute('data-portfolio-filter') : '*';
+   let portfolioLayout = portfolionIsotope.getAttribute('data-portfolio-layout') ? portfolionIsotope.getAttribute('data-portfolio-layout') : 'masonry';
+   let portfolioSort = portfolionIsotope.getAttribute('data-portfolio-sort') ? portfolionIsotope.getAttribute('data-portfolio-sort') : 'original-order';
+   
+   window.addEventListener('load', () => {
+     let portfolioIsotope = new Isotope(document.querySelector('.portfolio-container'), {
+       itemSelector: '.portfolio-item',
+       layoutMode: portfolioLayout,
+       filter: portfolioFilter,
+       sortBy: portfolioSort
       });
-
+      
       let menuFilters = document.querySelectorAll('.portfolio-isotope .portfolio-flters li');
       menuFilters.forEach(function(el) {
         el.addEventListener('click', function() {
@@ -272,13 +285,13 @@ document.addEventListener('DOMContentLoaded', () => {
       });
 
     });
-
+    
   }
 
   /**
    * Animation on scroll function and init
-   */
-  function aos_init() {
+  */
+ function aos_init() {
     AOS.init({
       duration: 1000,
       easing: 'ease-in-out',
@@ -304,57 +317,69 @@ function contact(event) {
   // const people = document.getElementById('people').value;
   // const bookingOption = document.getElementById('bookingOption').value;
   const message = document.getElementById('message').value;
-
+  
   const selectedOptions = Array.from(document.querySelectorAll('input[name="bookingOption"]:checked'))
-    .map(checkbox => checkbox.value);
-
-
+  .map(checkbox => checkbox.value);
+  
+  
   var mf = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
   if (email.value.match(mf)) {
     const body = `Name: ${name}<br>Email: ${email.value}<br>subject:${subject.value}<br>Message: ${message}`;
     // console.log(message)
     // Email.send({
-    //   Host: "smtp.gmail.com",
-    //   Username: "codeshah18@gmail.com",
-    //   Password: "s@181201S",
-    //   To: 'punitcaterers1981@gmail.com',
-    //   From: "codeshah18@gmail.com",
-    //   Subject: "Sending Email using javascript",
-    //   Body: "this is the body"
-    // })
+      //   Host: "smtp.gmail.com",
+      //   Username: "codeshah18@gmail.com",
+      //   Password: "s@181201S",
+      //   To: 'punitcaterers1981@gmail.com',
+      //   From: "codeshah18@gmail.com",
+      //   Subject: "Sending Email using javascript",
+      //   Body: "this is the body"
+      // })
       // .then(function (message) {
-      //   alert("Date Booked Successfully")
-      // });
-    console.log(body)
-    // Email.send({
-    //   Host: "smtp.gmail.com",
-    //   Username: "satyam.shah15803@sakec.ac.in",
-    //   Password: "satyamshah@181201",
-    //   To: 'punitcaterers1981@gmail.com',
-    //   From: "satyam.shah15803@sakec.ac.in",
-    //   Subject: "Sending Email using javascript",
-    //   Body: body,
-    // })
-    Email.send({
-      SecureToken : "dbf421e7-5d04-4807-be1e-4d06b748c485",
-      To : 'punitcaterers1981@gmail.com',
-      From : "punitcaterers1981@gmail.com",
-      Subject : "Booking A date from "+name,
-      Body : body,
+        //   alert("Date Booked Successfully")
+        // });
+        console.log(body)
+        // Email.send({
+          //   Host: "smtp.gmail.com",
+          //   Username: "satyam.shah15803@sakec.ac.in",
+          //   Password: "satyamshah@181201",
+          //   To: 'punitcaterers1981@gmail.com',
+          //   From: "satyam.shah15803@sakec.ac.in",
+          //   Subject: "Sending Email using javascript",
+          //   Body: body,
+          // })
+          Email.send({
+            SecureToken : "dbf421e7-5d04-4807-be1e-4d06b748c485",
+            To : 'punitcaterers1981@gmail.com',
+            From : "punitcaterers1981@gmail.com",
+            Subject : "Booking A date from "+name,
+            Body : body,
     })
     .then(function (message) {
-    alert("Date Booked Successfully")
+      alert("Date Booked Successfully")
     });
     return false;
-  
+    
     //   .then(function (message) {
-    //     alert("Date Booked Successfully")
-    //   });
-    // return false;
-  }
-  // else {
-  //   alert("Please enter valid email address!");
-  //   email.focus();
-  //   return false;
-  // }
-}
+      //     alert("Date Booked Successfully")
+      //   });
+      // return false;
+    }
+    // else {
+      //   alert("Please enter valid email address!");
+      //   email.focus();
+      //   return false;
+      // }
+    }
+    /**
+     * Hero carousel indicators
+     */
+    
+    let heroCarouselIndicators = select("#hero-carousel-indicators")
+    let heroCarouselItems = select('#heroCarousel .carousel-item', true)
+    
+    heroCarouselItems.forEach((item, index) => {
+      (index === 0) ?
+      heroCarouselIndicators.innerHTML += "<li data-bs-target='#heroCarousel' data-bs-slide-to='" + index + "' class='active'></li>":
+        heroCarouselIndicators.innerHTML += "<li data-bs-target='#heroCarousel' data-bs-slide-to='" + index + "'></li>"
+    });
